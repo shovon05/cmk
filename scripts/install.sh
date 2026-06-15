@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# CleanMyKeyboard — installer
-# Usage: curl -fsSL https://raw.githubusercontent.com/shovon05/cmk/main/scripts/install.sh | bash
+# KeyboardHibernate — installer
+# Usage: curl -fsSL https://raw.githubusercontent.com/shovon05/kh/main/scripts/install.sh | bash
 
 set -e
 
-REPO="shovon05/cmk"
-BINARY_NAME="cmk"
+REPO="shovon05/kh"
+BINARY_NAME="kh"
 INSTALL_DIR="/usr/local/bin"
 
 RED='\033[0;31m'
@@ -17,13 +17,13 @@ RESET='\033[0m'
 
 echo ""
 echo -e "${CYAN}${BOLD}╔══════════════════════════════════════════╗${RESET}"
-echo -e "${CYAN}${BOLD}║       🧹  CleanMyKeyboard Installer      ║${RESET}"
+echo -e "${CYAN}${BOLD}║      ❄️   KeyboardHibernate Installer    ║${RESET}"
 echo -e "${CYAN}${BOLD}╚══════════════════════════════════════════╝${RESET}"
 echo ""
 
 # Check macOS
 if [[ "$(uname)" != "Darwin" ]]; then
-  echo -e "${RED}✗ cmk only supports macOS.${RESET}"
+  echo -e "${RED}✗ kh only supports macOS.${RESET}"
   exit 1
 fi
 
@@ -37,8 +37,8 @@ fi
 
 echo -e "${BOLD}  Cloning repository...${RESET}"
 TMP_DIR=$(mktemp -d)
-git clone --depth 1 "https://github.com/${REPO}.git" "$TMP_DIR/cmk" 2>/dev/null
-cd "$TMP_DIR/cmk"
+git clone --depth 1 "https://github.com/${REPO}.git" "$TMP_DIR/kh" 2>/dev/null
+cd "$TMP_DIR/kh"
 
 echo -e "${BOLD}  Building (this may take ~30s the first time)...${RESET}"
 swift build -c release 2>/dev/null
@@ -57,9 +57,9 @@ cd ~
 rm -rf "$TMP_DIR"
 
 echo ""
-echo -e "${GREEN}${BOLD}  ✅  cmk installed successfully!${RESET}"
+echo -e "${GREEN}${BOLD}  ✅  kh installed successfully!${RESET}"
 echo ""
-echo -e "  Run ${CYAN}cmk${RESET} in your terminal to get started."
+echo -e "  Run ${CYAN}kh${RESET} in your terminal to get started."
 echo ""
 echo -e "${YELLOW}  ⚠  First run:${RESET} macOS will ask for Accessibility permission."
 echo -e "  Go to ${BOLD}System Settings → Privacy & Security → Accessibility${RESET}"
